@@ -18,72 +18,28 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from colorama import Fore, Style
 
-Gr='\033[1;32m'
-Ye='\033[1;33m'
-Wh='\033[1;37m'
-colorama.init()
-
-
 
 security_set = False
 
-
-
-
-
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0'}
-
-errorMessage = [
-    "SQL syntax",
-    "SQL",
-    "Sql",
-    "sql",
-    "MySql",
-    "MySQL",
-    "mysql",
-    "Syntax",
-    "SYNTAX",
-    "You have an error",
-]
 def banner():
-        print(Fore.GREEN +'''            
-            SSD LAB vulnerability scanner 
-            By
+        print(f'''{Fore.RED}
+              -WEBSECure-{Fore.GREEN}  
+         A security Testing tool{Fore.RED}
+            
+                  By
+                  
             Muhammad Anas Khan
+            
             Ahsan Raza
+            
             Hamdan Noori
-         ''')  
+            
+{Style.RESET_ALL}
+''') 
       
         print()
         print()
     
-    
-
-def check(url): 
-    c = 0
-    for error in errorMessage:
-        try:
-          r = requests.get(url, headers=headers)
-        except requests.exceptions.ConnectionError:
-          break
-        except requests.exceptions.TooManyRedirects:
-            break
-
-        if error in r.text:
-            c = 1
-            print(url + Fore.GREEN +" [Vulnerable]")
-            break
-    
-    if c == 0:
-        print(url + Fore.GREEN +" [Not Vulnerable]")
-    
-def clear():
-    if 'linux' in sys.platform:
-        os.system('clear')
-    elif 'darwin' in sys.platform:
-        os.system('clear')
-    else:
-        os.system('cls')   
 
 def get_all_forms(url):
     soup = bs(requests.get(url).content, "html.parser")
