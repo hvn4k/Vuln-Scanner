@@ -1,7 +1,7 @@
 __author__ = "Muhammad Anas Khan"
 from pprint import pprint
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlparse
-import sys ,requests,time,sys,logs,html
+import sys ,requests,time,sys,html
 import  os,datetime,time
 from sys import argv, exit, version_info
 import colorama
@@ -24,12 +24,10 @@ Wh='\033[1;37m'
 colorama.init()
 
 
-#timestamp= datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-#cwd = os.path.dirname(os.path.abspath( __file__ ))
-#sys.path.insert(0,cwd+'/..')
+
 security_set = False
 
-#work_dir = cwd +'/logs/'
+
 
 
 
@@ -270,7 +268,7 @@ if __name__ == "__main__":
                             print(Fore.RED + "Vulnerability detected. Stopping further testing.")
                             break  
 
-                    print(Fore.GREEN + "Testing completed. Results written to the log file.")
+                    
 
                 except Exception as e:
                     print(f"Error: {e}")
